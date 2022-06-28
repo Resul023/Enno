@@ -1,0 +1,46 @@
+﻿@model List<Worker>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <a class="btn btn-primary" asp-action="Create">Create</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Desc</th>
+                        <th scope="col">FullName</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Desc</td>
+                            <td>@item.Fullname</td>
+                            <td>@item.Position</td>
+                            <td>
+                                <img src="~/upload/worker/@item.Image" width="50" height="50">
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger">Delete</a>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

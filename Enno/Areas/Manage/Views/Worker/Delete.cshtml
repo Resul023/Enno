@@ -1,0 +1,23 @@
+﻿@model Worker
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <div class="card" style="width: 18rem;">
+                <img src="/upload/worker/@Model.Image" class="card-img-top" >
+                <div class="card-body">
+                    <p class="card-text">Fullname:@Model.Fullname</p>
+                    <p class="card-text">Position:@Model.Position</p>
+                    <p class="card-text">Desc:@Model.Desc</p>
+                    <form asp-action="Delete" method="post" enctype="multipart/form-data">
+                        <button type="submit" href="#" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
